@@ -18,6 +18,7 @@ AMERICA_STOCK = ['AAPL',
                  'QLD'
                  'TSLA',
                  'NVDA',
+                 'AVGO'
                  ]
 
 #token

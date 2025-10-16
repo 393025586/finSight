@@ -16,6 +16,8 @@ AMERICA_MARKET = '^IXIC'
 AMERICA_STOCK = ['AAPL',
                  'MSFT',
                  'QLD'
+                 'TSLA',
+                 'NVDA',
                  ]
 
 #token

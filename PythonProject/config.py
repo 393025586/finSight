@@ -20,11 +20,8 @@ AMERICA_STOCK = ['AAPL',
                  'NVDA',
                  'AVGO'
                  ]
-'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJXB7d/TSS0hTWr9VjCKgbPJEa0BWvAl3v+5qgbyB0gg 393025586@qq.com'
 
 #token
 TUSHARE_TOKEN = 'ab75a5effbf918542640f2fb68dfefb0f6f5f04e804b9939d2651fca'
 DEEPSEEK_TOKEN = 'sk-2247335a215a4405a9c6b5f759ff4f70'
 FRED_TOKEN = 'cb3e01f5068a06b2acac6467af4be5a6'
-
-'hello this is my trial!!!!'

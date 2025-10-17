@@ -21,6 +21,8 @@ AMERICA_STOCK = ['AAPL',
                  'AVGO'
                  ]
 
+
+'再试一下拉取'
 #token
 TUSHARE_TOKEN = 'ab75a5effbf918542640f2fb68dfefb0f6f5f04e804b9939d2651fca'
 DEEPSEEK_TOKEN = 'sk-2247335a215a4405a9c6b5f759ff4f70'

@@ -1,0 +1,40 @@
+// Prisma Schema for finSight
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 用户模型
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String   // bcrypt 加密后的密码
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 用户的资产列表
+  assets    Asset[]
+}
+
+// 资产模型
+model Asset {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  symbol      String   // 资产代码，如 AAPL, BTC, etc
+  name        String   // 资产名称
+  type        String   // 资产类型：stock, crypto, commodity, etc
+  notes       String?  // 备注
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 关联到用户
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, symbol])
+}

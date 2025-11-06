@@ -1,0 +1,150 @@
+# Asset List Configuration
+
+# Popular China A-Share Stocks
+china_a_share:
+  indices:
+    - symbol: "000001"  # 上证指数
+      name: "Shanghai Composite Index"
+      type: "index"
+    - symbol: "399001"  # 深证成指
+      name: "Shenzhen Component Index"
+      type: "index"
+    - symbol: "399006"  # 创业板指
+      name: "ChiNext Index"
+      type: "index"
+
+  popular_stocks:
+    - symbol: "600519"  # 贵州茅台
+      name: "Kweichow Moutai"
+      sector: "Consumer Staples"
+    - symbol: "000858"  # 五粮液
+      name: "Wuliangye"
+      sector: "Consumer Staples"
+    - symbol: "601318"  # 中国平安
+      name: "Ping An Insurance"
+      sector: "Financials"
+    - symbol: "600036"  # 招商银行
+      name: "China Merchants Bank"
+      sector: "Financials"
+    - symbol: "000333"  # 美的集团
+      name: "Midea Group"
+      sector: "Consumer Discretionary"
+    - symbol: "300750"  # 宁德时代
+      name: "CATL"
+      sector: "Industrials"
+    - symbol: "601012"  # 隆基绿能
+      name: "LONGi Green Energy"
+      sector: "Industrials"
+
+# Hong Kong Stocks
+hong_kong:
+  indices:
+    - symbol: "HSI"
+      name: "Hang Seng Index"
+      type: "index"
+
+  popular_stocks:
+    - symbol: "00700"  # 腾讯控股
+      name: "Tencent Holdings"
+      sector: "Technology"
+    - symbol: "09988"  # 阿里巴巴
+      name: "Alibaba Group"
+      sector: "Technology"
+    - symbol: "00941"  # 中国移动
+      name: "China Mobile"
+      sector: "Telecommunications"
+    - symbol: "01299"  # 友邦保险
+      name: "AIA Group"
+      sector: "Financials"
+
+# US Stocks
+us_stocks:
+  indices:
+    - symbol: "^GSPC"  # S&P 500
+      name: "S&P 500 Index"
+      type: "index"
+    - symbol: "^DJI"  # Dow Jones
+      name: "Dow Jones Industrial Average"
+      type: "index"
+    - symbol: "^IXIC"  # Nasdaq
+      name: "NASDAQ Composite"
+      type: "index"
+
+  popular_stocks:
+    # Tech Giants
+    - symbol: "AAPL"
+      name: "Apple Inc."
+      sector: "Technology"
+    - symbol: "MSFT"
+      name: "Microsoft Corporation"
+      sector: "Technology"
+    - symbol: "GOOGL"
+      name: "Alphabet Inc."
+      sector: "Technology"
+    - symbol: "AMZN"
+      name: "Amazon.com Inc."
+      sector: "Consumer Discretionary"
+    - symbol: "NVDA"
+      name: "NVIDIA Corporation"
+      sector: "Technology"
+    - symbol: "META"
+      name: "Meta Platforms Inc."
+      sector: "Technology"
+    - symbol: "TSLA"
+      name: "Tesla Inc."
+      sector: "Consumer Discretionary"
+
+    # Financials
+    - symbol: "JPM"
+      name: "JPMorgan Chase & Co."
+      sector: "Financials"
+    - symbol: "V"
+      name: "Visa Inc."
+      sector: "Financials"
+    - symbol: "MA"
+      name: "Mastercard Inc."
+      sector: "Financials"
+
+    # Healthcare
+    - symbol: "UNH"
+      name: "UnitedHealth Group"
+      sector: "Healthcare"
+    - symbol: "JNJ"
+      name: "Johnson & Johnson"
+      sector: "Healthcare"
+
+# Cryptocurrencies
+cryptocurrencies:
+  - symbol: "BTC-USD"
+    name: "Bitcoin"
+    type: "crypto"
+  - symbol: "ETH-USD"
+    name: "Ethereum"
+    type: "crypto"
+  - symbol: "BNB-USD"
+    name: "Binance Coin"
+    type: "crypto"
+
+# Commodities
+commodities:
+  - symbol: "GC=F"
+    name: "Gold Futures"
+    type: "commodity"
+  - symbol: "CL=F"
+    name: "Crude Oil Futures"
+    type: "commodity"
+  - symbol: "SI=F"
+    name: "Silver Futures"
+    type: "commodity"
+
+# Forex (Currency Pairs)
+forex:
+  - symbol: "CNY=X"
+    name: "USD/CNY"
+    type: "forex"
+  - symbol: "EURUSD=X"
+    name: "EUR/USD"
+    type: "forex"
+  - symbol: "GBPUSD=X"
+    name: "GBP/USD"
+    type: "forex"

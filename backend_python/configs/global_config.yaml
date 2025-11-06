@@ -1,0 +1,151 @@
+# Global Configuration for finSight
+
+# Application Settings
+app:
+  name: "finSight"
+  version: "2.0.0"
+  description: "Asset Insight | Investment Journal"
+
+# Database Settings
+database:
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+  pool_recycle: 3600
+
+# Market Settings
+markets:
+  supported:
+    - code: "CN"
+      name: "China A-Share"
+      timezone: "Asia/Shanghai"
+      currency: "CNY"
+    - code: "HK"
+      name: "Hong Kong"
+      timezone: "Asia/Hong_Kong"
+      currency: "HKD"
+    - code: "US"
+      name: "United States"
+      timezone: "America/New_York"
+      currency: "USD"
+
+# Data Fetcher Settings
+data_fetcher:
+  cache_enabled: true
+  cache_ttl_hours: 24
+  retry_attempts: 3
+  retry_delay_seconds: 2
+  timeout_seconds: 30
+
+  # API Rate Limits
+  rate_limits:
+    akshare: 100  # requests per minute
+    yfinance: 2000  # requests per hour
+
+# Metrics Calculation Settings
+metrics:
+  # Risk-free rate for Sharpe Ratio calculation
+  risk_free_rate:
+    CN: 0.025  # China 1-year Treasury
+    HK: 0.035  # Hong Kong
+    US: 0.045  # US 10-year Treasury
+
+  # Default calculation periods
+  periods:
+    short_term_days: 30
+    medium_term_days: 90
+    long_term_days: 252  # Trading days in a year
+
+  # Volatility calculation
+  volatility:
+    window: 252
+    annualization_factor: 252
+
+# Visualization Settings
+visualization:
+  default_theme: "plotly_white"
+  chart_width: 1200
+  chart_height: 600
+  export_formats:
+    - "png"
+    - "html"
+    - "json"
+
+# AI Analysis Settings
+ai:
+  providers:
+    - name: "gemini"
+      enabled: true
+      model: "gemini-pro"
+      temperature: 0.7
+      max_tokens: 2048
+    - name: "openai"
+      enabled: false
+      model: "gpt-4"
+      temperature: 0.7
+      max_tokens: 2048
+
+  analysis_prompts:
+    asset_analysis: |
+      Analyze the following asset data and provide insights on:
+      1. Performance trends
+      2. Risk profile
+      3. Investment recommendations
+
+    market_summary: |
+      Summarize today's market activities based on the following data:
+      1. Major price movements
+      2. Market sentiment
+      3. Key events
+
+    macro_analysis: |
+      Analyze the macroeconomic indicators and their potential impact on investments.
+
+# News Settings
+news:
+  sources:
+    - name: "sina_finance"
+      enabled: true
+      priority: 1
+    - name: "eastmoney"
+      enabled: true
+      priority: 2
+
+  max_articles_per_asset: 10
+  update_interval_hours: 1
+
+# Macro Metrics Settings
+macro:
+  # Data sources priority
+  sources:
+    CN:
+      - "akshare"
+      - "eastmoney"
+    US:
+      - "fred"
+      - "yfinance"
+
+  # Key metrics to track
+  metrics:
+    - code: "GDP"
+      name: "Gross Domestic Product"
+      frequency: "quarterly"
+    - code: "CPI"
+      name: "Consumer Price Index"
+      frequency: "monthly"
+    - code: "UNEMPLOYMENT"
+      name: "Unemployment Rate"
+      frequency: "monthly"
+    - code: "INTEREST_RATE"
+      name: "Central Bank Interest Rate"
+      frequency: "irregular"
+    - code: "PMI"
+      name: "Purchasing Managers Index"
+      frequency: "monthly"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  rotation: "500 MB"
+  retention: "30 days"

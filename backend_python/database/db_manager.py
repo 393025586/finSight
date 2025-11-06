@@ -68,22 +68,57 @@ class DatabaseManager:
             session.add(user)
             session.flush()
             session.refresh(user)
-            return user
+            # Extract data before session closes
+            user_id = user.id
+            user_email = user.email
+            user_username = user.username
+            user_created_at = user.created_at
+
+        # Create detached user object with data
+        detached_user = User(
+            email=user_email,
+            username=user_username,
+            password_hash=password_hash
+        )
+        detached_user.id = user_id
+        detached_user.created_at = user_created_at
+        return detached_user
 
     def get_user_by_email(self, email: str) -> Optional[User]:
         """Get user by email"""
         with self.get_session() as session:
-            return session.query(User).filter(User.email == email).first()
+            user = session.query(User).filter(User.email == email).first()
+            if user:
+                detached = User(email=user.email, username=user.username, password_hash=user.password_hash)
+                detached.id = user.id
+                detached.created_at = user.created_at
+                detached.is_active = user.is_active
+                return detached
+            return None
 
     def get_user_by_username(self, username: str) -> Optional[User]:
         """Get user by username"""
         with self.get_session() as session:
-            return session.query(User).filter(User.username == username).first()
+            user = session.query(User).filter(User.username == username).first()
+            if user:
+                detached = User(email=user.email, username=user.username, password_hash=user.password_hash)
+                detached.id = user.id
+                detached.created_at = user.created_at
+                detached.is_active = user.is_active
+                return detached
+            return None
 
     def get_user_by_id(self, user_id: int) -> Optional[User]:
         """Get user by ID"""
         with self.get_session() as session:
-            return session.query(User).filter(User.id == user_id).first()
+            user = session.query(User).filter(User.id == user_id).first()
+            if user:
+                detached = User(email=user.email, username=user.username, password_hash=user.password_hash)
+                detached.id = user.id
+                detached.created_at = user.created_at
+                detached.is_active = user.is_active
+                return detached
+            return None
 
     # ==================== Asset Operations ====================
 
